@@ -39,6 +39,13 @@ Hello Yoda!
 Hello Unknown!
 ```
 
+Este es el código:
+```
+#!/usr/bin/env ruby
+name = ARGV.first || 'Unknown'
+puts "Hello #{name.capitalize}!"
+```
+
 El cambio que hemos hecho ha sido `name = ARGV.first || 'Unknown'`. Esto significa, añade un valor o contenido a la variable `name`. Primero lo intentas con `ARGV.first` y si va mal lo intentas con `Unkown`. Si estás acostumbrado a usar comandos concatenados en la consola del sistema operativo, entonces, ya estarás acostumbrado al uso del operador `||` para concatenar operaciones. Pues es igual.
 Veamos un ejemplo con comandos:
 
