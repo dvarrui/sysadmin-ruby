@@ -40,7 +40,7 @@ Hello Unknown!
 ```
 
 Este es el código:
-```
+```ruby
 #!/usr/bin/env ruby
 name = ARGV.first || 'Unknown'
 puts "Hello #{name.capitalize}!"
