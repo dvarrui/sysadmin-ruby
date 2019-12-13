@@ -1,9 +1,15 @@
 
+```
+Estado : UNDER DEVELOPMENT!
+```
+
+---
 # Sysadmin Ruby
 
-Usar lenguage ruby para solucionar problemas de un Sysadmin
+Guía para usar lenguage ruby en la creación de scripts para solucionar problemas de un Sysadmin.
 
 ## Presentación
+
 who
 
 ## Introducción
