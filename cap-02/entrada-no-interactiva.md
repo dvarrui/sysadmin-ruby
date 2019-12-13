@@ -69,7 +69,7 @@ En este ejemplo [greet3.rb](example/greet3.rb), tenemos que:
 * Cuando no hay contenido para `ARGV.first`, entonces se muestra un mensaje en pantalla informado de cómo se usa el script y se termina con un código de salida 1.
 * Cuando `ARGV.first` tiene contenido se saluda a `name`.
 
-```
+```ruby
 #!/usr/bin/env ruby
 unless ARGV.first
   puts "Usage: #{$0} NAME"
