@@ -3,7 +3,7 @@
 
 En el ejemplo `helloworld.rb` del capítulo anterior, teníamos un script que generaba una salida a pantalla pero no recibía datos de entrada. Vamos a ver ahora ejemplos que reciben entrada de datos por parte del usuario.
 
-## Entrada interactiva
+## Entrada de datos interactiva (online)
 
 Queremos hacer un script que nos salude, pero claro, necesita saber nuestro nombre. Ejemplo:
 
@@ -79,19 +79,38 @@ irb> name.class
 
 Ir a [ruby-doc.org](https://ruby-doc.org/core-2.6.5/String.html) para consultar la documentación de los métodos/funciones disponibles de los objetos de las clase String.
 
+Vemos el uso de otros métodos de un String:
+```
+> irb
+irb> name = "obiwan"
+=> "obiwan"
 
-A la hora de recibir datos de entrada
-Entrada interactiva o no interactiva
-Argumentos y condicionales
-greet.sh david
-greet.rb david
+irb> name.capitalize
+=> "Obiwan"
 
-exit 0 y exit 1
-Combinar && y ||
+irb> name.upcase
+=> "OBIWAN"
 
-greet.sh david 3
-to_i
-bucles e iteraciones
+irb> name.downcase
+=> "obiwan"
 
-help usage
-leer fichero para saludar a un grupo
+irb> name.reverse
+=> "nawibo"
+
+irb> name.size
+6
+```
+
+## Interpolación de cadenas
+
+Nos falta por echar un vistazo a la última instrucción del script `puts "Hello #{name}!"`. `puts` muestra en pantalla un cadena de texto que empieza con "Hello " y sigue con el contenido de la variable `name`. La forma de interpolar el contenido de una variable dentro de una cadena de texto es con la secuencia `#{...}`.
+
+Esta forma es la más común desde el punto de vista de un "rubista", pero si lo prefiere puede usar también `puts "Hello " + name + "!"`. Donde vemos que el operador `+` se usa para concatenar cadenas de texto (String).
+
+¡Bien! Ya sabemos hacer:
+1. Salida de datos por pantalla (puts, print).
+2. Entrada de datos por teclado (gets).
+
+Pero debo matizar que lo que hemos aprendido es entrada de datos "interactiva". Esto es, que el script se queda esperando a que nosotros le demos la entrada de datos. Hasta que escribamos enter el script se queda parado. Es una entrada de datos interactiva porque el script interactúa con el usuario para poder avanzar en su proceso.
+
+[next >>](entrada-no-interactiva.md)
