@@ -12,10 +12,17 @@ Qui-gon Jinn
 Yoda
 ```
 
+Expliquemos lo nuevo del script [greet7.rb](example/greet7.rb):
+```ruby
+filename = ARGV.first
+names = File.readlines(filename)
+
+names.each do |name|
+  puts "Hello #{name.chop}!"
+end
+```
 
 Combinar && y ||
-help usage
-leer fichero para saludar a un grupo
 
 
 Hasta ahora no hemos resuelto ningún problema interesante para un administrador de sistemas. Sólo hemos saludado de muchas maneras diferentes. En los próximos capítulos vamos a aplicar lo que hemos aprendido para empezar a resolver problemas más reales.
