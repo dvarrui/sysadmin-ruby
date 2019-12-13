@@ -19,7 +19,7 @@ Vemos que ahora en el código del script se hace uso de una variable `ARGV`. Est
 
 Para acceder al primer elemento de una lista (o Array) podemos hacer `ARGV.first` o `ARGV[0]`. Esta segunda forma es igual en otros lenguajes de programación. El primer elemento de una lista es el elemento 0, luego el 1, etc.
 
-## Control de errores
+## Control de errores con el operador ||
 
 ¿Qué pasa si no pasamos el argumento al invocar al script? Veamos:
 
@@ -63,7 +63,7 @@ En estos casos, se concatenan varios comandos con el operador `||` y cuando uno 
 
 Bueno, pues esta misma idea se ha llevado también a los scripts de Ruby. Pero si no te gusta este operador, también podemos usar la estructura condicional `if-then`.
 
-## Control de errores con if-then
+## Control de errores con unless
 
 En este ejemplo [greet3.rb](example/greet3.rb), tenemos que:
 * Cuando no hay contenido para `ARGV.first`, entonces se muestra un mensaje en pantalla informado de cómo se usa el script y se termina con un código de salida 1.
