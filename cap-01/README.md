@@ -53,11 +53,51 @@ Para ejecutar el programa, podemos hacer `ruby helloworld.rb`. Pero por comodida
 * `chmod +x helloworld.rb`, para asignarle permisos de ejecución al fichero.
 * `./helloworld.rb`, para ejecutarlo.
 
+## Invocar desde cualquier directorio
 
-helloworld.rb
-chmod +x
-#!
-helloworld.sh
+Ahora para poder ejecutar nuestro script de `helloworld.rb`, debemos movernos a la carpeta donde está nuestro archivo y hacer `./helloworld.rb`. Es un poco raro, pero con `./` estamos indicando que se ejecute un fichero llamado `helloworld.rb` que está guardado en la carpeta donde nos encontramos ahora mismo.
 
-sin extensión
-/usr/local/bin
+Si sabemos donde se encuentra nuestro script, podemos ejecutarlo indicando la ruta o trayectoria para llegar a él. Ejemplo:
+```
+> ls
+helloworld.rb  helloworld.sh
+
+> cd ..
+> tree
+.
+├── example
+│   ├── helloworld.rb
+│   └── helloworld.sh
+└── README.md
+
+> ./example/helloworld.rb
+Hello World!
+
+```
+
+A veces, esto puede ser un poco molesto. Hay algunos scripts que nos gustaría invocar desde cualquier directorio, sin necesidad de indicar la ruta o trayectoria del script. Para resolver este punto deberíamos aprender más sobre la variable PATH, pero vamos a coger un atajo. Veamos el contenido de la variable PATH:
+
+```
+> echo $PATH
+/home/david/bin:/usr/local/bin:/usr/bin:/bin
+```
+
+Vemos que PATH contiene varias rutas o directorios de búsqueda. Em estos directorios será donde el sistema buscará los comandos o los scripts cuando los invocamos desde la consola sin necesidad de indicar la ruta o trayectoria del fichero.
+
+Para ello, con el usuario root, pondremos el script (o una copia del mismo) en una de dichas rutas del PATH. Por ejemplo:
+
+```
+> su
+# cp example/helloworld.rb /usr/local/bin/helloworld
+# exit
+
+> ls
+example  README.md
+
+> helloworld
+Hello World!
+```
+
+> Conclusiones:
+> 1. Todos los scripts que pongamos en `/usr/local/bin` se podrán invocar desde cualquier directorio.
+> 2. A los scripts de Ruby les podemos quitar la extensión y seguirán funcionando igual de bien (Gracias a la línea `#!`).
