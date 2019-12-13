@@ -77,7 +77,8 @@ irb> name.class
 => String
 ```
 
-Si queremos ver todos los métodos/funciones disponibles de los objetos de las clase String.
+Ir a [ruby-doc.org](https://ruby-doc.org/core-2.6.5/String.html) para consultar la documentación de los métodos/funciones disponibles de los objetos de las clase String.
+
 
 A la hora de recibir datos de entrada
 Entrada interactiva o no interactiva
