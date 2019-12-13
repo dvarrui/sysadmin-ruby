@@ -63,6 +63,21 @@ Los String son las cadenas de texto. En nuestro caso, el nombre del usuario es u
 En el ejemplo anterior `name` es un objeto de tipo (clase) String. Todos los String tienen disponible el método `chop`. Veamos una sesión con `irb`:
 
 
+```
+> irb
+
+irb> name = gets
+quigon
+=> "quigon\n"
+
+irb> name.chop
+=> "quigon"
+
+irb> name.class
+=> String
+```
+
+Si queremos ver todos los métodos/funciones disponibles de los objetos de las clase String.
 
 A la hora de recibir datos de entrada
 Entrada interactiva o no interactiva
