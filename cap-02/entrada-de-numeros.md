@@ -187,8 +187,4 @@ Cosas nuevas:
 2. `ARGV` es un objeto Array que tiene el método `each` (Iterador). Dicho método recibe un bloque de código (`do-end`) y lo ejecuta por cada elemento dentro del Array.
 3. `name`, es una variable auxiliar que toma en cada iteración unos de los valores del Array.
 
-[next >>](entrada-desde-fichero.rb)
-
-Combinar && y ||
-help usage
-leer fichero para saludar a un grupo
+[next >>](entrada-desde-fichero.md)
