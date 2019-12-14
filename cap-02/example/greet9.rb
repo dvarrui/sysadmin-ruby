@@ -2,9 +2,9 @@
 unless ARGV.first
   puts "Usage: #{$0} FILENAME"
   puts "       FILENAME must contain a list like this: "
-  puts "         Obiwan:hi => Say hello to Obiwan"
-  puts "         Vader:bye => Say Bye-bye to Vader"
-  puts "         #Yoda:hi  => Ignore Yoda"
+  puts "         Name1:hi  => Say hello to Name1"
+  puts "         Name2:bye => Say Bye-bye to Name2"
+  puts "         #Name3:hi => Ignore Name3"
   exit 1
 end
 

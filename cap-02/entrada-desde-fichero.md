@@ -105,6 +105,53 @@ Vemos que tenemos varios caminos para leer el contenido de un fichero. Entiendo 
 
 ## Leer un fichero con varios campos
 
+Estamos complicando el formato del fichero de entrada. Esta vez tenemos `characters3.txt` de esta forma:
+```
+Obi-wan Kenobi:hi
+#Qui-gon Jinn:hi
+#Yoda:hi
+#Palpatine:bye
+Darth Maul:bye
+```
 
+Donde:
+1. Las líneas que comienzapor `#` se van a ignorar.
+2. Cada línea debe dividirse (`split(":")`) usando como separador el caracter ":", de modo que el campo 0 es el nombre y el campo 1 nos indica cómo saludar al personaje.
+3. Si el saludo es de tipo "hi" decimos "Hello", y si es de tipo "bye" nos despedimos.
+
+Veamos el resultado de ejecutar el script [greet9.rb](example/greet9.rb):
+
+```
+> ./greet9.rb characters3.txt
+Hello Obi-wan Kenobi!
+Bye-bye Darth Maul!
+
+> ./greet9.rb                
+Usage: ./greet9.rb FILENAME
+       FILENAME must contain a list like this:
+         Nane1:hi => Say hello to Name1
+         Name2:bye => Say Bye-bye to Name2
+         #Name3:hi  => Ignore Name3
+```
+
+Explicamos los cambios:
+```
+lines = %x[cat #{filename} | grep -v '#'].split("\n")
+
+lines.each do |line|
+  items = line.split(":")
+  puts "Hello #{items[0]}!" if items[1] == 'hi'
+  puts "Bye-bye #{items[0]}!" if items[1] == 'bye'
+end
+```
+* Cada línea del fichero (`lines`) es una Array que en cada iteración se vuelve a dividir (`items = line.split(":")`) en cada uno de los dos items que esperamos recibir.
+* `items[0]` será el primer campo (El nombre).
+* `items[1]` será el segundo campo (El modo de saludo)
+
+---
 
 Hasta ahora no hemos resuelto ningún problema interesante para un administrador de sistemas. Sólo hemos saludado de muchas maneras diferentes. En los próximos capítulos vamos a aplicar lo que hemos aprendido para empezar a resolver problemas más reales.
+
+> Recordar que no estamos aprendiendo a programar en Ruby, sino que estamos haciendo scripts en Ruby y estamos aprendiendo lo necesario para resolver nuestros scripts orientándolos al uso de comandos del sistema para sysadmin.
+
+[<< back](../README.md)

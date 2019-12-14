@@ -1,5 +1,7 @@
 
-# Hello World!
+# Ejecución
+
+Vamos a aprender lo necesario para ejecutar nuestros scripts de Ruby.
 
 ## Instalación de Ruby
 
@@ -8,6 +10,7 @@ Para poder probar los ejemplos de esta guía, necesitaremos tener instalado Ruby
 **Instalación en OpenSUSE**
 
 No es necesario, porque viene instalado por defecto.
+* `ruby -v`, para ver la versión de Ruby que tenemos instalada.
 
 **Instalación en Debian/Ubuntu**
 
@@ -15,7 +18,7 @@ No es necesario, porque viene instalado por defecto.
 * `apt-get install ruby`, para instalar Ruby.
 * `apt-get install irb`, para instalar el intérprete interactivo de Ruby.
 
-`irb` no es necesario para ejecutar nuestros scripts de Ruby, pero si es útil para depurar nuestros scripts y hacer pruebas para conocer mejor el lenguaje. De modo que lo instalaremos también.
+La herramienta `irb` no es necesaria para ejecutar nuestros scripts de Ruby, pero sí es útil para depurar nuestros scripts y hacer pruebas para conocer mejor el lenguaje. De modo que lo instalaremos también.
 
 ## Script helloworld.sh
 
@@ -98,6 +101,8 @@ example  README.md
 Hello World!
 ```
 
-> Conclusiones:
-> 1. Todos los scripts que pongamos en `/usr/local/bin` se podrán invocar desde cualquier directorio.
-> 2. A los scripts de Ruby les podemos quitar la extensión y seguirán funcionando igual de bien (Gracias a la línea `#!`).
+Conclusiones:
+1. Todos los scripts que pongamos en `/usr/local/bin` se podrán invocar desde cualquier directorio.
+2. A los scripts de Ruby les podemos quitar la extensión y seguirán funcionando igual de bien (Gracias a la línea `#!`).
+
+[<< back](../README.md)
