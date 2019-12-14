@@ -46,7 +46,7 @@ Esta segunda forma también es utilizada en los script de Bash. Es cómoda, limp
 
 Así que... voy a usar la forma `%x[command]` para ejecutar "comandos de lectura".
 
-Un uso muy común será para comprobar si estamos ejecutando el script el usuario `root`.
+Un uso muy común será para comprobar si estamos ejecutando el script con el usuario `root`.
 
 ```
 > sudo ./myuser.rb
