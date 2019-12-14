@@ -109,4 +109,4 @@ FAIL
 
 En el primer caso el código de terminación es 0 (ok) y en el segundo es 1 (error) y por eso la secuencia continúa con el siguiente comando y se muestra en pantalla el mensaje "FAIL".
 
-[next >>](entrada-de-numeros.rb)
+[next >>](entrada-de-numeros.md)
