@@ -1,4 +1,6 @@
 
+
+
 rshowinfo
 
 encontrar comandos para mostrar información del sistema

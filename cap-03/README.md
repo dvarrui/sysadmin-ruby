@@ -1,13 +1,71 @@
 
-system
-%x[] y ``
-Comandos del sistema
-help
-whoami -> root
-instalar y desinstalar paquetes
-zypper in
-zypper remove
-zypper se
-apt
+# Comandos de lectura
 
-package-manager.rb
+He llamado "comandos de lectura" a aquellos comandos del sistema que nos muestran información sobre el estado del sistema. No hacen cambios en el sistema, sólo leen y nos muestran datos en pantalla.
+
+Desde nuestros script de Ruby podemos usar la instrucción `username = %x[whoami]` para ejecutar el comando `whoami` y el valor devuelto no se muestra en pantalla sino que se almacena en la variable `username`.
+
+Ejemplo [myuser.rb](example/myuser.rb) en Ruby:
+```ruby
+#!/usr/bin/env ruby
+username = %x[whoami].chop
+puts "You are #{username}."
+```
+
+Ejemplo [myuser.sh](example/myuser.sh) en Bash:
+```bash
+#!/bin/bash
+USERNAME=$(whoami)
+echo "You are $USERNAME."
+```
+
+Otra forma de conseguir el mismo resultado es usando las "comillas francesas". Ejemplo:
+```
+myuser = `whoami`
+```
+
+
+Ejemplo [myuser2.rb](example/myuser2.rb) en Ruby:
+```ruby
+#!/usr/bin/env ruby
+username = `whoami`.chop
+puts "You are #{username}."
+```
+
+Ejemplo [myuser2.sh](example/myuser2.sh) en Bash:
+```bash
+#!/bin/bash
+USERNAME=`whoami`
+echo "You are $USERNAME."
+```
+
+Esta segunda forma también es utilizada en los script de Bash. Es cómoda, limpia y me gusta... pero no lo voy a usar en esta guía por dos razones:
+
+1. Estas comillas son complicadas de mostrar en un documento Markdown como éste, porque Markdown le da un significado especial.
+2. Me he dado cuenta que los principiantes suelen confundir con frecuencia esas comillas con esta otra ' o con las tildes.
+
+Así que... voy a usar la forma `%x[command]` para ejecutar "comandos de lectura".
+
+Un uso muy común será para comprobar si estamos ejecutando el script el usuario `root`.
+
+```
+> sudo ./myuser.rb
+You are root.
+```
+
+---
+## Comandos de escritura
+
+Llamaré "comandos de escritura" a aquellos comandos del sistema que al ejecutarse hacen alguna modificación del mismo. Por ejemplo: touch, mkdir, rm, chmod, etc.
+
+Para ejecutar "comandos de escritura" en Ruby, usaremos la instrucción `system(mkdir public)`. Esto invoca al comando del sistema `mkdir public`. `system` además nos devuelve true/false para indicarnos se la acción se ha ejcutado correctamente o no. Entonces normalmente haremos comprobación de posibles errores de la siguiente forma:
+```ruby
+ok = system(mkdir public)
+if ok
+  puts "Created public folder!"
+else
+  puts "ERROR: Can't create public folder!"
+end  
+```
+
+[next >>](instalar-software.md)
