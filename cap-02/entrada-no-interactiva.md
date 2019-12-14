@@ -50,18 +50,22 @@ El cambio que hemos hecho ha sido `name = ARGV.first || 'Unknown'`. Esto signifi
 Veamos un ejemplo con comandos:
 
 ```
-> mkdir /etc || mkdir etc                       
-mkdir: no se puede crear el directorio «/etc»: El fichero ya existe
+> false          
+> echo $?
+1
 
-> ls
-etc greet2.rb greet-asking.rb greet.rb
+> false || false || echo "3" || echo "4"
+3
 
-> rmdir etc || rmdir /etc
+> echo "1" || false || echo "3" || echo "4"
+1
 ```
 
-En estos casos, se concatenan varios comandos con el operador `||` y cuando uno funciona bien se termina, si no se sigue por el siguiente comando de la secuencia.
+En estos casos, se concatenan varios comandos con el operador `||` y desde que uno devuelva "exit 0" se termina la secuencia. En caso contrario se sigue por el siguiente comando.
 
-Bueno, pues esta misma idea se ha llevado también a los scripts de Ruby. Pero si no te gusta este operador, también podemos usar la estructura condicional `if-then`.
+Bueno, pues esta misma idea se ha llevado también a los scripts de Ruby. Pero si no te gusta esto operador, también podemos usar las estructuras condicionales `if`, `unless` o `case`.
+
+> Los códigos de salida de los comandos (o scripts) nos serám muy útiles para crear órdenes complejas basándonos en secuencias de comandos sencillos, uniéndolos mediante los operadores `||`, `&&` y `;`.
 
 ## Control de errores con unless
 

@@ -6,7 +6,7 @@ unless ARGV.first
 end
 
 filename = ARGV.first
-names = File.read(filename).split("\n")
+names = %x[cat #{filename} | grep -v '#'].split("\n")
 
 names.each do |name|
   puts "Hello #{name}!"
