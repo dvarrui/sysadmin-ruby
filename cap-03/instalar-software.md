@@ -16,7 +16,6 @@ nmap
 
 Ahora haremos un script [install.rb](example/myinstall.rb) que lea el contenido del fichero. Separe cada línea para identificar el nombre de cada paquete y luego ejecute los comandos necesarios para instalar dicho paquete.
 
-
 ```
 > ./myinstall.rb                                 
 Usage: ./myinstall.rb FILENAME
@@ -34,7 +33,8 @@ Se requieren privilegios de administrador (root) para ejecutar este comando.
 [ERROR] Package 'nmap' not installed!
 ```
 
-Hay que controlar que hayamos iniciado sesión con el usuario `root`.
+* Hay que controlar que hayamos iniciado sesión con el usuario `root`.
+* Además el comando de instalación "zypper install -y ..." funciona con OpenSUSE, pero si tenemos Debian/Ubuntu deberemos sustituirlo por "apt-get install -y".
 
 ## Añadiendo controles al proceso de instalación
 
@@ -75,9 +75,6 @@ Tenemos que:
 1. El script muestra una ayuda cuando se ejecuta sin parámetros.
 2. Muestra un error cuando no se ejecuta con el superusuario root.
 3. Instala los paquetes del fichero que se pasa por parámetros.
-
-> El comando de instalación "zypper install -y ..." funciona con OpenSUSE, si tenemos Debian/Ubuntu deberemos sustituirlo por "apt-get install -y".
-
 
 instalar y desinstalar paquetes
 system
