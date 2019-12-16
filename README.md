@@ -8,17 +8,7 @@ Estado : UNDER DEVELOPMENT!
 
 Guía para usar lenguage ruby en la creación de scripts para solucionar problemas de un Sysadmin.
 
-## Presentación
-
-who
-
-## Introducción
-
-why
-what
-
-## Capítulos
-
+* [Introdución](intro.md)
 * Capítulo 1:
     * [Ejecución](cap-01/README.md)
 * Capítulo 2:

@@ -44,9 +44,9 @@ Esta segunda forma también es utilizada en los script de Bash. Es cómoda, limp
 1. Estas comillas son complicadas de mostrar en un documento Markdown como éste, porque Markdown le da un significado especial.
 2. Me he dado cuenta que los principiantes suelen confundir con frecuencia esas comillas con esta otra ' o con las tildes.
 
-Así que... voy a usar la forma `%x[command]` para ejecutar "comandos de lectura".
+Así que... voy a usar la forma `%x[command]` para ejecutar "comandos de lectura" del sistema operativo.
 
-Un uso muy común será para comprobar si estamos ejecutando el script con el usuario `root`.
+Un uso muy común de esta instrucción, será para comprobar si estamos ejecutando el script con el usuario `root`.
 
 ```
 > sudo ./myuser.rb
