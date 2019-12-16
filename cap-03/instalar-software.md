@@ -47,11 +47,11 @@ unless `whoami`.chop == 'root'
 end
 ```
 
-Se nos ocurre que podríamos dar un toque de "color" a los mensajes de nuestros scripts. Sobre todo para remarcar aquellas partes que deban destacarse y poner en rojo lo errores. Para esto vamos a instalar una librería o gema Ruby llamada "Rainbow". Abrimos una consola y ejecutamos `gem install rainbow` como superusuario. La herramienta o ocmando gem ya lo tenemos en nuestro sistema. Se instaló junto con ruby.
+Se nos ocurre que podríamos dar un toque de "color" a los mensajes de nuestros scripts. Sobre todo para remarcar aquellas partes que deban destacarse y poner en rojo lo errores. Para esto vamos a instalar una librería o gema Ruby llamada "Rainbow". Abrimos una consola y ejecutamos `gem install colorize` como superusuario. La herramienta o ocmando gem ya lo tenemos en nuestro sistema. Se instaló junto con ruby.
 
 ```ruby
 #!/usr/bin/env ruby
-require 'rainbow'
+require 'colorize'
 
 if ARGV.empty?
   puts "Usage: #{$0} FILENAME"
@@ -60,16 +60,16 @@ if ARGV.empty?
 end
 
 unless `whoami`.chop == 'root'
-  puts Rainbow("[ERROR] Run as \'root\' user!").red.bright
+  puts "[ERROR] Run as \'root\' user!".light_red
   exit 1
 end
 ```
 
 Explicación:
-* Con `require 'rainbow'` cargamos la librería (o gema) Rainbow.
-* `puts Rainbow("ERROR").red.bright`, muestra el texto ERROR coloreado en rojo brillante.
+* Con `require 'colorize'` cargamos la librería (o gema) Rainbow.
+* `puts "ERROR".light_red`, muestra el texto ERROR coloreado en rojo brillante.
 
-Si quieres ver qué otras funciones o colores tiene Rainbow, lee [este enlace](https://github.com/sickill/rainbow).
+Si quieres ver qué otras funciones o colores tiene Rainbow, lee [este enlace](https://github.com/fazibear/colorize).
 
 Tenemos que:
 1. El script muestra una ayuda cuando se ejecuta sin parámetros.

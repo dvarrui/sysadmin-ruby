@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require 'rainbow'
+require 'colorize'
 
 if ARGV.empty?
   puts "Usage: #{$0} FILENAME"
@@ -8,7 +8,7 @@ if ARGV.empty?
 end
 
 unless `whoami`.chop == 'root'
-  puts Rainbow("[ERROR] Run as \'root\' user!").red.bright
+  puts "[ERROR] Run as \'root\' user!".light_red
   exit 1
 end
 
@@ -17,6 +17,6 @@ packages = `cat #{ARGV.first}`.split("\n")
 packages.each do |package|
   ok = system("zypper install -y #{package}")
   unless ok
-    puts Rainbow("[ERROR] Package '#{package}' not installed!").red.bright
+    puts "[ERROR] Package '#{package}' not installed!".light_red
   end
 end
