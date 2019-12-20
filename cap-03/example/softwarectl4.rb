@@ -10,6 +10,13 @@ if ARGV.empty?
 end
 
 ##
+# Check input file exist
+unless File.exist?(ARGV.first)
+  puts "[ERROR] File \'#{ARGV.first}\' dosn\'t exist!".light_red
+  exit 1
+end
+
+##
 # Check current user
 unless `whoami`.chop == 'root'
   puts "[ERROR] Run as \'root\' user!".light_red
