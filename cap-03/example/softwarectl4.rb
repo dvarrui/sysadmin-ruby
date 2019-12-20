@@ -25,7 +25,7 @@ end
 
 ##
 # Read input file
-packages = `cat #{ARGV.first}`.split("\n")
+packages = %x[cat #{ARGV.first}].split("\n")
 
 ##
 # Install packages

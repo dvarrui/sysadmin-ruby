@@ -3,6 +3,8 @@
 
 Cada vez que instalo el sistema operativo , suelo personalizarlo con los programas que uso habitualmente. Entonces vamos a crear un script para que nos ayude a personalizar la instalación del software de nuestro sistema.
 
+Además vamos a empezar a incorporar comentarios en el código para ayudar a facilitar su lectura y entender lo que está ocurriendo dentro del script. O por lo menos, dar pistas al lector de las intenciones del programador.
+
 ---
 ## 1. Primer intento
 
@@ -82,4 +84,4 @@ Hemos conseguido mejorar en:
 Problemas:
 1. Cada vez que cambia nuestra lista de paquetes debemos "modificar" el script. Eso... no es bueno.
 
-[next >>](instalar-software.md)
+[next >>](instalar-software2.md)
