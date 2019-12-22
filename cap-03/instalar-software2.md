@@ -111,19 +111,16 @@ Tenemos que:
 ---
 ## 5. Organización
 
-Seguramente seré un maniático... pero voy a organizar mejor el código para que sea más legible. Voy a organizarlo agrupando el código en bloques, y éstos asu vez, dentro de métodos.
+Seguramente seré un maniático... pero voy a organizar mejor el código para que sea más legible. Voy a organizarlo agrupando el código en bloques, y luego creando los métodos.
 
 > **IMPORTANTE**: Los nombres de los métodos deben ser verbos en inglés que indiquen la acción que se va a ejecutar dentro del mismo.
 
-Vemos que en el script [softwarectl5.rb](example/softwarectl5.rb) se han creado 3 métodos:
+Vemos que en el script [softwarectl5.rb](example/softwarectl5.rb) se han creado 2 métodos:
 * `check_arguments`, comprobar los argumentos de entrada.
-* `check_current_user`, comprobar que somos el usuario `root`.
 * `install_packages`, leer e instalar los paquetes.
 
-¿Por qué he creado 3 métodos?... Realmente no hay un regla estricta al respecto. Podía haber hecho 2 o 4... pero lo que intenté fue agrupar el código en bloques que tengan sentido por si mismo. Sentido para mí, al menos.
+¿Por qué he creado 2 métodos?... Realmente no hay un regla estricta al respecto. Podía haber hecho 2, 3 o 4... pero lo que intenté fue agrupar el código en bloques (no muy grandes) que tengan sentido por sí mismos (Sentido para mí, al menos).
 
 > **Mi truco para agrupar el código:**
 >
 > Normalmente me guío o me apoyo por el nombre del método. Esto es, si puedo poner un nombre de método rápidamente y que de forma clara defina y explique bien el contenido que representa, entonces opino que he agrupado bien el código dentro de dicho método. Si por el contrario, veo que pierdo mucho tiempo en decidir un nombre apropiado para el método o lo pongo y no me termina de gustar porque no representa con claridad su contenido... entonces sé que no he hecho una correcta agrupación y/o bloque y debo agrupar de otra forma.
-
-[next >>](instalar-software3.md)

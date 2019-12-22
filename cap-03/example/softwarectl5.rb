@@ -15,19 +15,14 @@ def check_arguments
   end
 end
 
-def check_current_user
+def install_packages(filename)
   # Check current user
   unless %x[whoami].chop == 'root'
     puts "[ERROR] Run as \'root\' user!".light_red
     exit 1
   end
-end
-
-def install_packages
-  check_arguments
-  check_current_user
   # Read input file
-  packages = %x[cat #{ARGV.first}].split("\n")
+  packages = %x[cat #{filename}].split("\n")
   # Install packages
   packages.each do |package|
     ok = system("zypper install -y #{package}")
@@ -37,4 +32,5 @@ def install_packages
   end
 end
 
-install_packages
+check_arguments
+install_packages(ARGV.first)
