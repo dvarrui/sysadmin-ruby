@@ -21,34 +21,12 @@ def install_packages
   system("zypper install -y vim")
 end
 
-##
-# Remove OS packages
-def remove_packages
-  system("zypper remove -y tree")
-  system("zypper remove -y nmap")
-  system("zypper remove -y vim")
-end
-
-##
-# Choose action from input argument
-if ARGV.first == '--install'
-  install_packages
-elsif ARGV.first == '--remove'
-  remove_packages
-else
-  puts "Usage: #{$0} [--install|--remove]"
-  puts ""
-  puts "Options: "
-  puts "         --install, install packages"
-  puts "         --remove, remove packages"
-  exit 1
-end
+install_packages
 ```
 
-Bueno, a simple vista podemos ver que el script tiene 3 partes:
-1. Una primera donde se define un método que se encargará de instalar los paquetes especificados en el sistema operativo. Se usa el comando `zypper install -y PACKAGENAME` porque hago mis pruebas en OpenSUSE. Si tienes Debian lo puee cambiar por `apt-get install -y PACKAGENAME`.
-2. Una segunda parte donde se define un método para desinstalar lo paquetes especificados.
-3. Una parte final donde se comprueba el valor del primer argumento. Y en función de su valor (`--install` o `--remove`) se ejecuta una accion u otra.
+Bueno, a simple vista podemos ver que el script es básico:
+1. Primero se define un método que se encargará de instalar los paquetes especificados en el sistema operativo. Se usa el comando `zypper install -y PACKAGENAME` porque hago mis pruebas en OpenSUSE. Si tienes Debian lo puee cambiar por `apt-get install -y PACKAGENAME`.
+2. Al final se invoca a dicho método.
 
 Problemas:
 1. Hay que poner muchas líneas `system`... y estamos incumpliendo una norma de todo buen programador: `DRY = Don't Repeat Yourself`.
