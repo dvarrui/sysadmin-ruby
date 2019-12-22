@@ -40,10 +40,16 @@ luke
 yoda
 ```
 
-Realmente es casi lo mismo que teníamos antes sólo que:
+Realmente es casi lo mismo que teníamos antes, sólo que:
 1. En lugar de nombres de paquetes tenemos nombres de usuarios.
 2. Ahora invocamos el comando `useradd USERNAME -m -p 123456` para crear usuario con su directorio HOME y la clave igual a 123456.
 
+---
+## Crear y eliminar usuarios
+
+Vamos a ampliar un poco más el script y vamos a crear otra versión donde incluiremos las opciones "crear" y "eliminar" usuarios.
+
+Script [userctl2.rb](example/userctl2.rb):
 
 Crear usuarios del sistema
 Leyéndolos de un fichero
