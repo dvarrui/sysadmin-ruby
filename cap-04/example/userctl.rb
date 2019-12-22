@@ -23,8 +23,11 @@ def create_users(filename)
   end
   # Read input file
   users = %x[cat #{filename}].split("\n")
-  # Install packages
+  # Create users
   users.each do |name|
+    # * Create user 'name'
+    # * Create home folder as '/home/name'
+    # * Set user password to '123456'
     ok = system("useradd #{name}")
     unless ok
       puts "[ERROR] User '#{name}' not created!".light_red
