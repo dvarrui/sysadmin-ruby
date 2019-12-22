@@ -20,4 +20,5 @@ Guía para usar lenguage ruby en la creación de scripts para solucionar problem
     * [Comandos del sistema](cap-03/README.md)
     * [Instalar software](cap-03/instalar-software.md)
     * [Instalar software](cap-03/instalar-software2.md)
-    * [Instalar software](cap-03/instalar-software3.md)
+* Capítulo 4:
+    * [Crear usuarios](cap-04/README.md)
