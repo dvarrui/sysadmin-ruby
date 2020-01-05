@@ -1,6 +1,9 @@
 #!/usr/bin/env ruby
+# Create and delete user defined into FILENAME
 require 'colorize'
 
+##
+# Check input arguments
 def check_arguments
   # Check input arguments
   if ARGV.empty? or ARGV.size < 2
@@ -26,26 +29,51 @@ def check_arguments
   return action, ARGV[1]
 end
 
-def create_users(filename)
-  # Check current user
+##
+# Check current user is root
+def check_user_is_root
   unless %x[whoami].chop == 'root'
     puts "[ERROR] Run as \'root\' user!".light_red
     exit 1
   end
+end
+
+##
+# Create users from filename
+def create_users(filename)
   # Read input file
   users = %x[cat #{filename}].split("\n")
   # Create users
+  # * Create user 'name'
+  # * Create home folder as '/home/name'
+  # * Set user password to '123456'
   users.each do |name|
-    # * Create user 'name'
-    # * Create home folder as '/home/name'
-    # * Set user password to '123456'
     ok = system("useradd #{name}")
     unless ok
-      puts "[ERROR] User '#{name}' not created!".light_red
+      puts "[ERROR] User '#{name}' no created!".light_red
+    end
+  end
+end
+
+##
+# Delete users from filename
+def delete_users(filename)
+  # Read input file
+  users = %x[cat #{filename}].split("\n")
+  # Delete users
+  # -f => forces the removal of the user account,
+  #       even if the user is still logged in.
+  # -r => Files in the user's home directory will be removed
+  #       along with the home directory itself and the user's mail spool.
+  users.each do |name|
+    ok = system("userdel -rf #{name}")
+    unless ok
+      puts "[ERROR] User '#{name}' no deleted!".light_red
     end
   end
 end
 
 action, filename = check_arguments
+check_user_is_root
 create_users(filename) if action == :create
 delete_users(filename) if action == :delete
