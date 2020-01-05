@@ -2,8 +2,6 @@
 # Create and delete user defined into FILENAME
 require 'colorize'
 
-##
-# Check input arguments
 def check_arguments
   # Check input arguments
   if ARGV.empty? or ARGV.size < 2
