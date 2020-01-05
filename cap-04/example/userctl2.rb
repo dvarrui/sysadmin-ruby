@@ -7,10 +7,12 @@ require 'colorize'
 def check_arguments
   # Check input arguments
   if ARGV.empty? or ARGV.size < 2
-    puts "Usage: #{$0} [-c|-d] FILENAME"
-    puts "       -c, Create users"
-    puts "       -d, Delete users"
-    puts "       FILENAME is a text file with a list of user names."
+    puts "Usage:   #{$0} [-c|-d] FILENAME"
+    puts "\nOptions:"
+    puts "         -c, Create users"
+    puts "         -d, Delete users"
+    puts "         FILENAME is a text file with a list of user names."
+    puts "\nWarning: Run this script as superuser."
     exit 1
   end
   if %w[-c --create].include? ARGV[0]
@@ -30,15 +32,6 @@ def check_arguments
 end
 
 ##
-# Check current user is root
-def check_user_is_root
-  unless %x[whoami].chop == 'root'
-    puts "[ERROR] Run as \'root\' user!".light_red
-    exit 1
-  end
-end
-
-##
 # Create users from filename
 def create_users(filename)
   # Read input file
@@ -48,7 +41,7 @@ def create_users(filename)
   # * Create home folder as '/home/name'
   # * Set user password to '123456'
   users.each do |name|
-    ok = system("useradd #{name}")
+    ok = system("useradd #{name} -m -p 123456")
     unless ok
       puts "[ERROR] User '#{name}' no created!".light_red
     end
@@ -74,6 +67,5 @@ def delete_users(filename)
 end
 
 action, filename = check_arguments
-check_user_is_root
 create_users(filename) if action == :create
 delete_users(filename) if action == :delete
