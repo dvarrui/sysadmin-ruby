@@ -81,9 +81,11 @@ Para ejecutar nuestro nuevo script [userctl3.rb](example/userctl3.rb) hacemos: `
 Ahora tenemos las siguientes funciones:
 * **check_arguments**: para comprobar que los argumentos de entrada son correctos.
 * **read_input_data**: Se encarga de leer el fichero de entrada y descomponer cada fila en los campos correspondientes para crear una lista (Array) de Hashes.
-* **create_user**: Crea un usuario.
-* **delete_user**: Elimina un usuario.
 * **process_users**: Lee la lista de los usuarios y los procesa uno a uno.
+* **create_user**: Crea un usuario determinado.
+* **delete_user**: Elimina un usuario determinado.
+
+[next >>](multiplataforma.md)
 
 (Comandos de windows)
 salida en pantalla para un log..
