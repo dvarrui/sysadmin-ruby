@@ -21,9 +21,9 @@ end
 def read_input_data(filename)
   data = []
   # Read input file => Array with file content
-  all_lines = File.read(filename).split("\n")
-  # Select lines without '#' symbol
-  lines = all_lines.select { |i| true unless i.start_with?('#') }
+  lines = File.read(filename).split("\n")
+  # Remove first line
+  lines.delete_at(0)
   lines.each do |line|
     items = line.split(':')
     user = {}
