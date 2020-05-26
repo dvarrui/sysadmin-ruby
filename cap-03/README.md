@@ -78,4 +78,4 @@ else
 end  
 ```
 
-[next >>](instalar-software.md)
+[next >>](funciones.md)

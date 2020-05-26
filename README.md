@@ -1,9 +1,4 @@
 
-```
-Estado : UNDER DEVELOPMENT!
-```
-
----
 # Sysadmin Ruby
 
 Guía para usar lenguage ruby en la creación de scripts para solucionar problemas de un Sysadmin.
@@ -22,3 +17,5 @@ Guía para usar lenguage ruby en la creación de scripts para solucionar problem
     * [Instalar software](cap-03/instalar-software2.md)
 * Capítulo 4:
     * [Crear usuarios](cap-04/README.md)
+    * [Multiplataforma](cap-04/multiplataforma.md)
+* Capítulo 5: **EN CONSTRUCCIÓN!!!**
