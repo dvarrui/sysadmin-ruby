@@ -13,6 +13,7 @@ Guía para usar lenguage ruby en la creación de scripts para solucionar problem
     * [Entrada desde fichero](cap-02/entrada-desde-fichero.md)
 * Capítulo 3:
     * [Comandos del sistema](cap-03/README.md)
+    * [Funciones](cap-03/funciones.md)
     * [Instalar software](cap-03/instalar-software.md)
     * [Instalar software](cap-03/instalar-software2.md)
 * Capítulo 4:
