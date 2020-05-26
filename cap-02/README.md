@@ -35,7 +35,10 @@ name = gets.chop
 puts "Hello #{name.capitalize}!"
 ```
 
-Destripemos un poco el contenido del script:
+> NOTA: [greet-asking.sh](example/greet-asking.sh) es el mismo script, pero escrito usando Bash.
+
+## Destripando un poco el contenido del script
+
 * `print "What's your name?"`, muestra un mensaje en pantalla. Es igual que `puts` pero se continúa en la línea actual. Esto es, no hay salto de línea.
 * `name = gets.chop`, `gets` se queda esperando a que escribamos algo por teclado y pulsemos la tecla enter ("\n"). Luego `gets.chop` elimina el último carácter que hemos escrito (La tecla enter) y finalmente `name = gets.chop` se guarda lo que hemos escrito en una variable llamada `name`.
 
@@ -106,6 +109,8 @@ irb> name.size
 Nos falta por echar un vistazo a la última instrucción del script `puts "Hello #{name}!"`. `puts` muestra en pantalla un cadena de texto que empieza con "Hello " y sigue con el contenido de la variable `name`. La forma de interpolar el contenido de una variable dentro de una cadena de texto es con la secuencia `#{...}`.
 
 Esta forma es la más común desde el punto de vista de un "rubista", pero si lo prefiere puede usar también `puts "Hello " + name + "!"`. Donde vemos que el operador `+` se usa para concatenar cadenas de texto (String).
+
+## Resumen
 
 ¡Bien! Ya sabemos hacer:
 1. Salida de datos por pantalla (puts, print).

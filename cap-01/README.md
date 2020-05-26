@@ -101,8 +101,10 @@ example  README.md
 Hello World!
 ```
 
-Conclusiones:
+## Resumen
+
 1. Todos los scripts que pongamos en `/usr/local/bin` se podrán invocar desde cualquier directorio.
 2. A los scripts de Ruby les podemos quitar la extensión y seguirán funcionando igual de bien (Gracias a la línea `#!`).
+3. Daremos permisos de ejecución a los scripts de Ruby, para poderlos ejecutar sin invocar explícitamente al intérprete.
 
 [<< back](../README.md)
