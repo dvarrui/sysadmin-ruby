@@ -1,3 +1,4 @@
+[<< back](README.md)
 
 # Entrada desde fichero (offline)
 

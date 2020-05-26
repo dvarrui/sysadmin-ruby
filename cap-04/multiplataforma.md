@@ -12,7 +12,6 @@ Vemos que el script tiene dos tipos de instrucciones:
 
 Puesto que Ruby se puede instalar en cualquier plataforma, si queremos hacer una versión del script independiente del sistema operativo, podríamos resolver el problema sustituyendo todos los comandos específicos por instrucciones de Ruby.
 
----
 ## Sustitución de comandos específicos
 
 Para la lectura del fichero de entrada habíamos usado el comando `cat` para ver el contenido, y luego `split` para separar las líneas. Ahora sustituiremos el comando por instrucciones propias de Ruby. Esto es, usando la instrucción `File.read(FILENAME)`.

@@ -65,9 +65,12 @@ You are root.
 
 Llamaré "comandos de escritura" a aquellos comandos del sistema que al ejecutarse hacen alguna modificación del mismo. Por ejemplo: touch, mkdir, rm, chmod, etc.
 
-Para ejecutar "comandos de escritura" en Ruby, usaremos la instrucción `system(mkdir public)`. Esto invoca al comando del sistema `mkdir public`. `system` además nos devuelve true/false para indicarnos se la acción se ha ejcutado correctamente o no. Entonces normalmente haremos comprobación de posibles errores de la siguiente forma:
+> OJO también sirve para invocar comandos de otros sistemas operativos.
+
+Para ejecutar "comandos de escritura" en Ruby, usaremos la instrucción `system("mkdir public")`. Esto invoca al comando del sistema `mkdir public`. Además, `system` devuelve true/false para indicar si la acción se ha podido ejecutar. Normalmente haremos comprobación de posibles errores de la siguiente forma:
+
 ```ruby
-ok = system(mkdir public)
+ok = system("mkdir public")
 if ok
   puts "Created public folder!"
 else

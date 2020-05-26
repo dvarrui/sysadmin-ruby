@@ -44,7 +44,6 @@ Realmente, es casi lo mismo que teníamos antes, sólo que:
 1. En lugar de nombres de paquetes tenemos nombres de usuarios.
 2. Ahora invocamos el comando `useradd USERNAME -m -p 123456` para crear usuario con su directorio HOME, y por el momento, la clave la pondremos como 123456.
 
----
 ## Crear y eliminar usuarios
 
 Vamos a ampliar un poco más el script, y vamos a crear otra versión donde incluiremos las acciones para "crear" y "eliminar" usuarios.
@@ -57,7 +56,6 @@ El script [userctl2.rb](example/userctl2.rb) tiene las siguientes funciones/mét
 
 Quería hacer notar, que se ha eliminado el código que verificaba que el usuario que está ejecutando el script era obligatoriamente `root`. Es cierto, que para ejecutar correctamente el script vamos a necesitar privilegios, pero no es obligatorio que seamos `root`. También podemos invocar el script con `sudo usertctl2.rb FILENAME`. Lo importante es tener los privilegios suficientes.
 
----
 ## Más información en FILENAME
 
 En el ejemplo anterior, cuando se creaba un usuario nuevo, sólo se inficaba el nombre del mismo, pero no se especificaban otros datos como password, directorio home, shell, etc. Así que vamos a ampliar estos datos dentro del fichero [list-users.txt](example/list-users.txt), de la siguiente forma:
@@ -86,7 +84,3 @@ Ahora tenemos las siguientes funciones:
 * **delete_user**: Elimina un usuario determinado.
 
 [next >>](multiplataforma.md)
-
-(Comandos de windows)
-salida en pantalla para un log..
-help

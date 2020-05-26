@@ -1,11 +1,11 @@
+[<< back](README.md)
 
 # Instalar software
 
-Cada vez que instalo el sistema operativo , suelo personalizarlo con los programas que uso habitualmente. Entonces vamos a crear un script para que nos ayude a personalizar la instalación del software de nuestro sistema.
+Cada vez que instalo el sistema operativo, suelo personalizarlo con los programas que uso habitualmente. Entonces vamos a crear un script para que nos ayude a personalizar la instalación del software de nuestro sistema.
 
-Además vamos a empezar a incorporar comentarios en el código para ayudar a facilitar su lectura y entender lo que está ocurriendo dentro del script. O por lo menos, dar pistas al lector de las intenciones del programador.
+Además, vamos a incluir comentarios en el código para ayudar a facilitar su lectura y entender lo que está ocurriendo dentro del script. O por lo menos, dar pistas al lector de las intenciones del programador.
 
----
 ## 1. Primer intento
 
 Nuestro primero intento es [softwarectl.rb](example/softwarectl.rb):
@@ -24,7 +24,9 @@ end
 install_packages
 ```
 
-Bueno, a simple vista podemos ver que el script es básico:
+> NOTA: En OpenSUSE se usa el comando zypper para instalar paquetes, de la misma forma que en Debian se usa el comando apt.
+
+Bueno, a simple vista vemos lo siguente:
 1. Primero se define un método que se encargará de instalar los paquetes especificados en el sistema operativo. Se usa el comando `zypper install -y PACKAGENAME` porque hago mis pruebas en OpenSUSE. Si tienes Debian lo puee cambiar por `apt-get install -y PACKAGENAME`.
 2. Al final se invoca a dicho método.
 
