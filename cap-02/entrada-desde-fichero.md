@@ -27,6 +27,7 @@ Hello Yoda!
 ```
 
 Comprobamos que el nuevo script hace un saludo a cada uno de los personajes dentro del fichero `characters.txt`. La parte nueva del script es :
+
 ```ruby
 filename = ARGV.first
 names = File.read(filename).split("\n")
@@ -37,9 +38,9 @@ end
 ```
 
 Explicación:
-* `names` al final, va a contener un Array con todos los nombres (filas) del fichero `characters.txt`.
 * Empezamos con `File.read(filename)`. Como la variable `filename` es el contenido del argumento que se pasa al script. Esto es `characters.txt`. Entonces `File.read` lee el contenido completo del fichero y lo guarda.
 * Pero... este contenido es una cadena de texto y nosotros queremos un Array. Entonces aplicamos `.split("\n")` para forzar una división del String por cada retorno de carro o fin de línea.
+* `names` al final contiene un Array con todos los nombres (filas) del fichero `characters.txt`.
 
 Veamos esto mismo dentro de irb:
 ```

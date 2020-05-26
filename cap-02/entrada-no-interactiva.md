@@ -15,7 +15,7 @@ Ejemplo de uso del script [greet.rb](example/greet.rb):
 Hello Quigon!
 ```
 
-Vemos que ahora en el código del script se hace uso de una variable `ARGV`. Esta variable contiene una lista con todos los argumentos que se le pasan al script. En el ejemplo anterior `ARGV = [ 'quigon' ]`, es una lista con un único elemento.
+Vemos que en el código se hace uso de `ARGV`. Este objeto contiene una lista con todos los argumentos que se pasan al script durante la ejecución. En el ejemplo anterior `ARGV = [ 'quigon' ]`, es una lista con un único elemento.
 
 Para acceder al primer elemento de una lista (o Array) podemos hacer `ARGV.first` o `ARGV[0]`. Esta segunda forma es igual en otros lenguajes de programación. El primer elemento de una lista es el elemento 0, luego el 1, etc.
 
@@ -29,7 +29,7 @@ Traceback (most recent call last):
 ./greet.rb:3:in `<main>': undefined method `capitalize' for nil:NilClass (NoMethodError)
 ```
 
-Bueno... tenemos un error cuando el script intenta mostrar por pantalla un contenido que no existe... Esto lo podemos mejorar añadiendo un contenido cuando no existe para prevenir el error. Veamos [greet2.rb](example/greet2.rb) en ejecución:
+Bueno... tenemos un error cuando el script intenta mostrar por pantalla un contenido que no existe... Esto lo podemos prevenir, añadiendo un valor por defecto cuando no existe. Veamos [greet2.rb](example/greet2.rb) en ejecución:
 
 ```
 > ./greet2.rb yoda
@@ -46,14 +46,11 @@ name = ARGV.first || 'Unknown'
 puts "Hello #{name.capitalize}!"
 ```
 
-El cambio que hemos hecho ha sido `name = ARGV.first || 'Unknown'`. Esto significa, añade un valor o contenido a la variable `name`. Primero lo intentas con `ARGV.first` y si va mal lo intentas con `Unkown`. Si estás acostumbrado a usar comandos concatenados en la consola del sistema operativo, entonces, ya estarás acostumbrado al uso del operador `||` para concatenar operaciones. Pues es igual.
+El cambio que hemos hecho ha sido `name = ARGV.first || 'Unknown'`. Esto significa, añade un valor o contenido a la variable `name`. Primero lo intentas con `ARGV.first`, y si va mal, lo intentas con `Unkown`. Si estás acostumbrado a usar comandos concatenados en la consola del sistema operativo, entonces, ya estarás acostumbrado al uso del operador `||` para concatenar operaciones. Pues es esto funciona igual.
 Veamos un ejemplo con comandos:
 
 ```
 > false          
-> echo $?
-1
-
 > false || false || echo "3" || echo "4"
 3
 
@@ -61,16 +58,16 @@ Veamos un ejemplo con comandos:
 1
 ```
 
-En estos casos, se concatenan varios comandos con el operador `||` y desde que uno devuelva "exit 0" se termina la secuencia. En caso contrario se sigue por el siguiente comando.
+En el ejemplo anterior, se concatenan varios comandos con el operador `||`, y desde que uno devuelva OK (código de salida 0) se termina la secuencia. En caso contrario se sigue por el siguiente comando.
 
 Bueno, pues esta misma idea se ha llevado también a los scripts de Ruby. Pero si no te gusta esto operador, también podemos usar las estructuras condicionales `if`, `unless` o `case`.
 
-> Los códigos de salida de los comandos (o scripts) nos serám muy útiles para crear órdenes complejas basándonos en secuencias de comandos sencillos, uniéndolos mediante los operadores `||`, `&&` y `;`.
+> INFO: Los códigos de salida de los comandos (o scripts) serán muy útiles para crear órdenes complejas a partir de secuencias de comandos sencillos, uniéndolos mediante los operadores `||`, `&&` y `;`.
 
 ## Control de errores con unless
 
 En este ejemplo [greet3.rb](example/greet3.rb), tenemos que:
-* Cuando no hay contenido para `ARGV.first`, entonces se muestra un mensaje en pantalla informado de cómo se usa el script y se termina con un código de salida 1.
+* Cuando no hay contenido para `ARGV.first`, entonces se muestra un mensaje en pantalla informado de cómo se usa el script y se termina con ERROR (código de salida 1).
 * Cuando `ARGV.first` tiene contenido se saluda a `name`.
 
 ```ruby
@@ -85,12 +82,12 @@ puts "Hello #{name.capitalize}!"
 ```
 
 La instrucción `exit` hace que termine el script inmediatamente. Esta instrucción se acompaña de un valor numérico. Donde:
-* 0 => el script terminó correctamente.
-* 1 => el script terminó con error.
+* `exit 0`, el script terminó correctamente.
+* `exit 1`, el script terminó con error.
 
 > Otros valores diferentes de 0 se podrían usar para indicar distintos tipos de errores.
 
-Si el programa acaba de forma natural se asume que terminó de forma correcta, o lo que es lo mismo con un `exit 0`. Estos código de salida son muy útiles en los comandos (o nuestros scripts) para poder hacer combinaciones o secuencias de comandos. Veamos ejemplo:
+Si el programa acaba de forma natural se asume que terminó de forma correcta, o lo que es lo mismo con un `exit 0`. Estos códigos de salida son muy útiles en los comandos (o nuestros scripts) para poder hacer combinaciones o secuencias de comandos. Veamos ejemplo:
 
 ```
 > ./greet3.rb yoda || echo "ok"
@@ -101,12 +98,13 @@ Usage: ./greet3.rb NAME
 FAIL
 ```
 
-> Hemos aprendido:
-> 1. Que podemos entrar datos al script usando los argumentos (`ARGV`).
-> 2. Que debemos controlar posibles errores en la entrada de datos.
-> 3. Al terminar usamos `exit 0` o `exit 1` para indicar si el script ha terminado correctamente o ha habido algún problema.
+En el primer caso el código de terminación es 0 (correcto) y no se llega a mostrar el texto "OK". En el segundo es 1 (error), y por eso la secuencia continúa con el siguiente comando y se llega a mostrar pantalla el mensaje "FAIL".
 
+## Resume
 
-En el primer caso el código de terminación es 0 (ok) y en el segundo es 1 (error) y por eso la secuencia continúa con el siguiente comando y se muestra en pantalla el mensaje "FAIL".
+Hemos aprendido:
+1. Introducir datos al script usando los argumentos (`ARGV`).
+2. Se deben controlar posibles errores en la entrada de datos (`if`, `unless`, etc.).
+3. Al terminar usamos `exit 0` o `exit 1` para indicar si el script ha terminado correctamente, o ha habido algún problema.
 
 [next >>](entrada-de-numeros.md)

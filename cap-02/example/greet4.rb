@@ -4,6 +4,6 @@ if ARGV.size < 2
   exit 1
 end
 
-name = ARGV[0]
-number = ARGV[1].to_i
+name = ARGV[0]        # First  argument
+number = ARGV[1].to_i # Second argument convertod into Integer
 puts "Hello #{name.capitalize * number}!"
