@@ -20,19 +20,18 @@ puts "Hello! I'm root!"
 puts "I'm working too hard"
 ```
 
-Este bloque de código tiene la función de:
+Este código hace los siguiente:
 1. Asegurarse de que somos el usuario `root`. En caso contrario se termina el programa con error.
 2. Realizar una serie de tareas muy importantes.
 
 ## Empecemos a usar funciones
 
-Las funciones empiezan por `def` y terminan por `end`. En medio se coloca un bloque de código. Además a la función de le da un nombre. A ser posible un verbo que indique la acción que realiza el bloque de código que contiene.
+En Ruby, las funciones empiezan por `def` y terminan por `end`. En medio se coloca un bloque de código. Cada función recibe un nombre, a ser posible un verbo, que indique la acción que realiza el bloque de código que contiene.
 
 Veamos como creamos las funciones con `def-end`:
 
 ```ruby
 def ensure_you_are_superuser
-  # Ensure we are superuser
   if %x[whoami].chop != 'root'
     puts "Sorry, you must be root!"
     exit 1
@@ -40,7 +39,6 @@ def ensure_you_are_superuser
 end
 
 def do_tasks
-  # Do your tasks
   puts "Hello! I'm root!"
   puts "I'm working too hard"
 end
@@ -54,14 +52,16 @@ ensure_you_are_superuser
 do_tasks
 ```
 
-> Se puede consultar este script en su versión ruby ([functions1.rb](example/functions1.rb)) y bash ([functions1.sh](example/functions1.sh)) 
+> Consultar script en su [versión ruby](example/functions1.rb), o en su [versión bash](example/functions1.sh))
 
 Leyendo este bloque main... nos queda más claro el objetivo del script:
 1. Ensure you are superuser
 2. Do tasks
 
+## Resumen
+
 A partir de ahora, intentaremos:
 1. Crear funciones para hacer el código más legible.
-2. Introducir comentarios.
+2. Introducir comentarios dentro del código.
 
 [next >>](instalar-software.md)

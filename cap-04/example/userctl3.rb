@@ -22,8 +22,8 @@ def read_input_data(filename)
   data = []
   # Read input file
   lines = %x[cat #{filename} | grep -v '#'].split("\n")
-  lines.each do |line|
-    items = line.split(':')
+  lines.each do |line|      # Process every input line
+    items = line.split(':') # Split line content into several fields
     user = {}
     user[:action] = item[0]
     user[:name] = item[1]

@@ -1,7 +1,7 @@
 
 # Crear usuarios
 
-Vamos a cambiar de tarea. Ahora vamos a tratar de crear usuarios de forma masiva. Aprovecharemos lo que hemos visto en el capítulo anterior.
+Vamos a cambiar de tarea. Ahora vamos a tratar de crear usuarios de forma masiva, aprovechando lo que hemos visto en el capítulo anterior.
 
 ## Crear script userctl
 
@@ -40,9 +40,9 @@ luke
 yoda
 ```
 
-Realmente, es casi lo mismo que teníamos antes, sólo que:
+Realmente, es casi lo mismo que teníamos antes, cambiando lo siguiente: que:
 1. En lugar de nombres de paquetes tenemos nombres de usuarios.
-2. Ahora invocamos el comando `useradd USERNAME -m -p 123456` para crear usuario con su directorio HOME, y por el momento, la clave la pondremos como 123456.
+2. Ahora usamos el comando `useradd USERNAME -m -p 123456` para crear usuario con su directorio HOME por defecto, y por el momento, la clave 123456.
 
 ## Crear y eliminar usuarios
 
@@ -58,20 +58,20 @@ Quería hacer notar, que se ha eliminado el código que verificaba que el usuari
 
 ## Más información en FILENAME
 
-En el ejemplo anterior, cuando se creaba un usuario nuevo, sólo se inficaba el nombre del mismo, pero no se especificaban otros datos como password, directorio home, shell, etc. Así que vamos a ampliar estos datos dentro del fichero [list-users.txt](example/list-users.txt), de la siguiente forma:
+En el ejemplo anterior, cuando se creaba un usuario nuevo, en la entrada de datos sólo se indicaba el nombre del mismo. No se especificaban otros datos como password, directorio home, shell, etc. Así que vamos a ampliar estos datos dentro del fichero [list-users.txt](example/list-users.txt), de la siguiente forma:
 
 ```
-#Action:Username:Password:HomeFolder:Shell
+# Action:Username:Password:HomeFolder:Shell
 create:obiwan:123456:/home/obiwan:/bin/bash
 create:luke:::
 delete:vader:::
 ```
 
-El fichero tiene una cabecera que nos indica el significado de los distintos campos separados por `:`. Ahora todas las líneas que comiencen por `#` serán ignoradas en la entrada de datos.
+El fichero tiene una cabecera que nos indica el significado de los distintos campos separados por `:`. Trataremos de ignorar todas las líneas que comiencen por `#` por entender que serán sólo comentarios.
 
 El fichero de entrada contiene los campos que se indican separados por comas. En el caso de que los campos estén vacíos, se usarán valores por defecto.
 
-> Las aplicaciones las podemos configurar para que se comporten según nuestras necesidades, pero si elegimos el camino estándar (La convención) entonces es más fácil porque se configura por defecto.
+> NOTA: Las aplicaciones las podemos configurar para que se comporten según nuestras necesidades, pero si elegimos el camino estándar (La convención) entonces es más fácil porque se configura por defecto.
 > Esto en Ruby se llama "Convención frente a configuración".
 
 Para ejecutar nuestro nuevo script [userctl3.rb](example/userctl3.rb) hacemos: `./userctl3.rb list-users.txt`.

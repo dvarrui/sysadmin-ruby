@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 
 def ensure_you_are_superuser
-  # Ensure we are superuser
   if %x[whoami].chop != 'root'
     puts "Sorry, you must be root!"
     exit 1
@@ -9,7 +8,6 @@ def ensure_you_are_superuser
 end
 
 def do_tasks
-  # Do your tasks
   puts "Hello! I'm root!"
   puts "I'm working too hard"
 end
