@@ -54,6 +54,8 @@ ensure_you_are_superuser
 do_tasks
 ```
 
+> Se puede consultar este script en su versión ruby ([functions1.rb](example/functions1.rb)) y bash ([functions1.sh](example/functions1.sh)) 
+
 Leyendo este bloque main... nos queda más claro el objetivo del script:
 1. Ensure you are superuser
 2. Do tasks
