@@ -74,14 +74,41 @@ Veamos ahora cómo lo integramos todo:
 
 Tenemos el script modificado en [userctl4.rb](example/userctl4.rb).
 
----
+## Comandos que no se pueden sustituir
+
+En nuestro ejemplo tenemos comandos del sistema que no podemos sustitutir por instrucciones de Ruby (`useradd` y `userdel`). Si queremos ejecutar este script en otro sistema operativo tendremos que cambiar estos comandos. Por tanto, vamos a seguir otro camino. Vamos tratar de detectar el sistema operativo donde se está ejecutando el script, para tener lo comandos que podemos usar.
+
 ## Detectar el sistema operativo
 
-Todavía nos falta hacer que
+Para detectar el sistema operativo desde Ruby, podemos hacerlo de muchas formas. Lo que veo más sencillo, es instalar la gema **OS** (`gem install os`) y a partir de ahí la usamos.
 
+```
+> irb
 
-(Comandos de windows)
+irb> require 'os'
+irb> OS.windows?
+=> false
+
+irb> OS.linux?
+=> true
+```
+
+Bien, modifiquemos el script para tener en cuenta el sistema operativo.
+
+## Script multiplataforma
+
+Modificamos el script anterior para detectar el sistema operativo antes de ejecutar los comandos del sistema. Como el script ha crecido demasiado... lo dividimos en dos ficheros:
+* [userctl5.rb](example/usertcl5.rb): Fichero principal con las funciones `check_arguments`, `read_input_data` y `process_users`.
+* [lib-userctl5.rb](example/lib-usertcl5.rb): Fichero que contiene varias funciones a modo de librería (`create_user`, `create_user_on_linux`, `create_user_on_windows`, `delete_user`, `delete_user_on_linux` y `delete_user_on_windows`).
+
+Cambios realizados:(Comandos de windows)
+
+require_relative
+create_user
+delete_user
+
+---
+
 salida en pantalla para un log..
 help
-
 lines = all_lines.select { |i| true unless(i.start_with?('#'))}
