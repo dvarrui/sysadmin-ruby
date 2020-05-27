@@ -10,9 +10,9 @@ Veamos este ejemplo:
 
 ```ruby
 # Ensure we are superuser
-unless %x[whoami] != 'root'
+if %x[whoami].chop != 'root'
   puts "Sorry, you must be root!"
-  exit 0
+  exit 1
 end
 
 # Do your task
@@ -33,9 +33,9 @@ Veamos como creamos las funciones con `def-end`:
 ```ruby
 def ensure_you_are_superuser
   # Ensure we are superuser
-  unless %x[whoami] != 'root'
+  if %x[whoami].chop != 'root'
     puts "Sorry, you must be root!"
-    exit 0
+    exit 1
   end
 end
 
