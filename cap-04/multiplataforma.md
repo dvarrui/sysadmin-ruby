@@ -1,3 +1,4 @@
+[<< back](README.md)
 
 # Multiplataforma
 
@@ -61,7 +62,7 @@ Veamos ahora cómo lo integramos todo:
   # Read input file => Array with file content
   lines = File.read(filename).split("\n")
 
-  # Remove first line
+  # Remove first line with field names
   lines.delete_at(0)
 
   # Iterate "lines"
@@ -70,9 +71,9 @@ Veamos ahora cómo lo integramos todo:
   end
 ```
 
-* Primero leemos el contenido del fichero `File.read(filename)` y usando `split("\n")` separamos cada línea. Obtenemos como resultado un Array de líneas que guardamos en `lines`.
+* Primero leemos el contenido del fichero `File.read(filename)`, y usando `split("\n")` separamos cada línea. Obtenemos como resultado un Array de líneas que guardamos en `lines`.
 
-Tenemos el script modificado en [userctl4.rb](example/userctl4.rb).
+> Tenemos el script modificado en [userctl4.rb](example/userctl4.rb).
 
 ## Comandos que no se pueden sustituir
 
@@ -97,15 +98,26 @@ Bien, modifiquemos el script para tener en cuenta el sistema operativo.
 
 ## Script multiplataforma
 
-Modificamos el script anterior para detectar el sistema operativo antes de ejecutar los comandos del sistema. Como el script ha crecido demasiado... lo dividimos en dos ficheros:
-* [userctl5.rb](example/usertcl5.rb): Fichero principal con las funciones `check_arguments`, `read_input_data` y `process_users`.
-* [lib-userctl5.rb](example/lib-usertcl5.rb): Fichero que contiene varias funciones a modo de librería (`create_user`, `create_user_on_linux`, `create_user_on_windows`, `delete_user`, `delete_user_on_linux` y `delete_user_on_windows`).
+Modificamos el script anterior para detectar el sistema operativo antes de ejecutar los comandos del sistema. Como el script ha crecido demasiado... lo dividimos en dos ficheros: userctl5 y lib-userctl5.
 
-Cambios realizados:(Comandos de windows)
+En el fichero principal ([userctl5.rb](example/usertcl5.rb)) tenemos:
+* Se "incluye" el código de nuestro fichero auxiliar/librería (`require_relative 'lib-userctl5'`).
+* Definimos las funciones `check_arguments`, `read_input_data` y `process_users`.
+* Se invoca el código principal del script:
+```
+filename = check_arguments
+process_users(read_input_data(filename))
+```
 
-require_relative
-create_user
-delete_user
+En el fichero auxiliar/librería ([lib-userctl5.rb](example/lib-usertcl5.rb) tenemos definidas las siguientes funciones:
+* create_user
+* create_user_on_linux
+* create_user_on_windows
+* delete_user
+* delete_user_on_linux
+* delete_user_on_windows
+
+La librería está preparada para ampliarse con definiciones de nuevos comandos para diferentes sistemas operativos.
 
 ---
 
