@@ -101,6 +101,7 @@ Ahora tenemos las siguientes funciones:
 * **delete_user**: Elimina un usuario determinado.
 
 El bloque principal de ejecución de nuestro script queda así:
+
 ```ruby
 filename = check_arguments
 process_users(read_input_data(filename))

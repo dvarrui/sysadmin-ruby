@@ -19,4 +19,5 @@ Guía para usar lenguage ruby en la creación de scripts para solucionar problem
 * Capítulo 4:
     * [Crear usuarios](cap-04/README.md)
     * [Multiplataforma](cap-04/multiplataforma.md)
+    * [Fitrado](cap-04/filtrado.md)
 * Capítulo 5: **EN CONSTRUCCIÓN!!!**

@@ -119,4 +119,4 @@ En el fichero auxiliar/librería ([lib-userctl5.rb](example/lib-usertcl5.rb) ten
 
 Esta librería está preparada para ampliarse con definiciones de nuevos comandos para diferentes sistemas operativos.
 
-[>> next](array.md)
+[>> next](filtrado.md)
