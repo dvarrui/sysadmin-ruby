@@ -2,7 +2,7 @@
 # Create and delete user defined into FILENAME
 
 require 'colorize'
-require_relative 'lib-userctl5'
+require_relative 'lib-userctl6'
 
 def check_arguments
   # Check input arguments
@@ -23,10 +23,10 @@ end
 def read_input_data(filename)
   data = []
   # Read input file => Array with file content
-  lines = File.read(filename).split("\n")
-  
-  # Remove first line
-  lines.delete_at(0)
+  inputs = File.read(filename).split("\n")
+
+  # Remove lines that start with # character
+  lines = inputs.select { |i| !i.start_with?("#") )
   lines.each do |line|
     items = line.split(':')
     user = {}

@@ -10,3 +10,4 @@ En el capítulo anterior vimos un script que creaba/borraba usuarios de forma ma
 /var/logger
 ARGF
 * Parsear parámetros de entrada.
+salida en pantalla para un log..

@@ -117,10 +117,6 @@ En el fichero auxiliar/librería ([lib-userctl5.rb](example/lib-usertcl5.rb) ten
 * delete_user_on_linux
 * delete_user_on_windows
 
-La librería está preparada para ampliarse con definiciones de nuevos comandos para diferentes sistemas operativos.
+Esta librería está preparada para ampliarse con definiciones de nuevos comandos para diferentes sistemas operativos.
 
----
-
-salida en pantalla para un log..
-help
-lines = all_lines.select { |i| true unless(i.start_with?('#'))}
+[>> next](array.md)

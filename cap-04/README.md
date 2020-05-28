@@ -6,7 +6,7 @@ Vamos a cambiar de tarea. Ahora vamos a tratar de crear usuarios de forma masiva
 
 ## Crear script userctl
 
-Creamos nuestra primera versión del script [userctl.rb](example/userctl.rb) basándonos en "softwarectl5.rb", pero cambiando lo siguiente el método "install_packages" por este otro "create_users":
+Creamos nuestra primera versión del script [userctl.rb](example/userctl.rb) basándonos en "softwarectl5.rb", pero cambiando el método "install_packages" por otro llamado "create_users":
 
 ```ruby
 def create_users(filename)
@@ -15,8 +15,10 @@ def create_users(filename)
     puts "[ERROR] Run as \'root\' user!".light_red
     exit 1
   end
+
   # Read input file
   users = %x[cat #{filename}].split("\n")
+
   # Create users
   users.each do |name|
     # * Create user 'name'
@@ -57,9 +59,23 @@ El script [userctl2.rb](example/userctl2.rb) tiene las siguientes funciones/mét
 
 Quería hacer notar, que se ha eliminado el código que verificaba que el usuario que está ejecutando el script era obligatoriamente `root`. Es cierto, que para ejecutar correctamente el script vamos a necesitar privilegios, pero no es obligatorio que seamos `root`. También podemos invocar el script con `sudo usertctl2.rb FILENAME`. Lo importante es tener los privilegios suficientes.
 
+El bloque principal de ejecución de nuestro script queda así:
+```ruby
+action, filename = check_arguments
+create_users(filename) if action == :create
+delete_users(filename) if action == :delete
+```
+
+La función _check_arguments_ lee la entrada de datos al script y devuelve la acción que hay que realizar (create o delete) y el nombre del fichero con los datos (nombres de usuario a procesar).
+
+* Si la acción es "create" se invoca a _create_users_.
+* Si la acción es "delete" se invoca a _delete_users_.
+
 ## Más información en FILENAME
 
-En el ejemplo anterior, cuando se creaba un usuario nuevo, en la entrada de datos sólo se indicaba el nombre del mismo. No se especificaban otros datos como password, directorio home, shell, etc. Así que vamos a ampliar estos datos dentro del fichero [list-users.txt](example/list-users.txt), de la siguiente forma:
+En el ejemplo anterior, a todos los nombres de usuario del fichero de entrada, se les aplicaba la misma acción. Por lo que no hacían falta dos ficheros: uno con los usuarios a crear, y otro con los usuarios a eliminar.
+
+Además, cuando se creaba un usuario nuevo, en la entrada de datos sólo se indicaba el nombre del mismo. No se especificaban otros datos como password, directorio home, shell, etc. Así que vamos mejorarlo. Empezamos ampliando datos dentro del fichero de entrada [list-users.txt](example/list-users.txt), de la siguiente forma:
 
 ```
 # Action:Username:Password:HomeFolder:Shell
@@ -79,9 +95,15 @@ Para ejecutar nuestro nuevo script [userctl3.rb](example/userctl3.rb) hacemos: `
 
 Ahora tenemos las siguientes funciones:
 * **check_arguments**: para comprobar que los argumentos de entrada son correctos.
-* **read_input_data**: Se encarga de leer el fichero de entrada y descomponer cada fila en los campos correspondientes para crear una lista (Array) de Hashes.
-* **process_users**: Lee la lista de los usuarios y los procesa uno a uno.
+* **read_input_data**: Se encarga de leer el fichero de entrada, y descomponer cada fila en los campos correspondientes para crear una lista (Array) de Hashes.
+* **process_users**: Lee la lista de los usuarios y los procesa uno a uno, invocando a los métodos _create_user_ y _delete_user_.
 * **create_user**: Crea un usuario determinado.
 * **delete_user**: Elimina un usuario determinado.
+
+El bloque principal de ejecución de nuestro script queda así:
+```ruby
+filename = check_arguments
+process_users(read_input_data(filename))
+```
 
 [next >>](multiplataforma.md)
