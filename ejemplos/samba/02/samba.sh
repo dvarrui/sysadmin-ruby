@@ -1,4 +1,5 @@
 #!/bin/bash
+# version 02
 
 USERNAME="mariano"
 HOSTNAME="server02g"
