@@ -15,10 +15,8 @@ Vamos a necesitar las siguientes máquinas:
 * Poner nombre del equipo "serverXXg".
 * Añadir en `/etc/hosts` los equipos `clientXXg` y `clientXXw` (Donde XX es el número del puesto de cada uno).
 
-----
 ## 1.2 Usuarios locales
 
-Vamos a GNU/Linux, y creamos los siguientes grupos y usuarios locales:
 * Crear los grupos `piratas`, `soldados` y `sambausers`.
 * Crear el usuario `sambaguest`. Para asegurarnos que nadie puede usar `sambaguest` para
 entrar en nuestra máquina mediante login, vamos a modificar este usuario y le ponemos
@@ -27,6 +25,8 @@ por comandos editando el fichero `/etc/passwd`.
 * Dentro del grupo `piratas` incluir a los usuarios `pirata1`, `pirata2` y `supersamba`.
 * Dentro del grupo `soldados` incluir a los usuarios `soldado1` y `soldado2` y `supersamba`.
 * Dentro del grupo `sambausers`, poner a todos los usuarios `soldados`, `piratas`, `supersamba` y a `sambaguest`.
+
+---
 
 ## 1.3 Crear las carpetas para los futuros recursos compartidos
 
