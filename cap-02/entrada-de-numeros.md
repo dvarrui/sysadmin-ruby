@@ -175,6 +175,13 @@ irb> a.each { |i| puts "@"*i }
 @@@@@
 @@@@@@
 => 4..6
+
+irb> for i in a do puts "@"*i end
+@@@@
+@@@@@
+@@@@@@
+=> 4..6
+
 ```
 
 ## Iterar con Arrays
@@ -196,6 +203,13 @@ Hello Obiwan!
 Hello Quigon!
 Hello Yoda!
 => ["Obiwan", "Quigon", "Yoda"]
+
+irb> for name in names do puts "Hello #{name}" end
+Hello Obiwan!
+Hello Quigon!
+Hello Yoda!
+=> ["Obiwan", "Quigon", "Yoda"]
+
 ```
 
 Los Arrays junto con los String son los objetos que más uso le vamos a dar en la creación de nuestros scripts de sysadmin.
@@ -209,7 +223,7 @@ if ARGV.empty?
   exit 1
 end
 
-ARGV.each do |name|
+for name in ARGV do
   puts "Hello #{name.capitalize}!"
 end
 ```

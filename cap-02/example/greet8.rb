@@ -8,6 +8,6 @@ end
 filename = ARGV.first
 names = %x[cat #{filename} | grep -v '#'].split("\n")
 
-names.each do |name|
+for name in names do
   puts "Hello #{name}!"
 end

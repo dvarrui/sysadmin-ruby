@@ -8,6 +8,6 @@ end
 filename = ARGV.first
 names = File.read(filename).split("\n")
 
-names.each do |name|
+for name in names do
   puts "Hello #{name}!"
 end

@@ -22,3 +22,8 @@ Guía para usar lenguage ruby en la creación de scripts para solucionar problem
     * [Fitrado](cap-04/filtrado.md)
 * Capítulo 5: **EN CONSTRUCCIÓN!!!**
 
+## Vídeos
+
+* [20220518 ujilliurex22: I love Ruby. Scripting Feliz!](https://www.youtube.com/watch?v=lggNRY4qNLs)
+* [20220208 I love Ruby. Episodio 1](https://www.youtube.com/watch?v=4NfmxYEBneo). Música descargada gratis de fiftysounds.com/es. Obra: Florencia y Diferente
+* [2019 pybirras: "Ruby y Python. ¿primos hermanos o primos lejanos?"](https://www.youtube.com/watch?v=Bvj7HKHjXCA)
