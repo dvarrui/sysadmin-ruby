@@ -1,0 +1,3 @@
+
+* joe-speedboat/linux.scripts: collection of scripts that might be useful: https://github.com/joe-speedboat/linux.scripts
+
