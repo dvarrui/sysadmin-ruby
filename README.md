@@ -31,3 +31,5 @@ Guía para usar lenguage ruby en la creación de scripts para solucionar problem
 ## Enlaces de interés
 
 * [Shell Script Best Practices - The Sharat's](https://t.co/f7zQenF46m?s=35) This article is about a few quick thumb rules I use when writing shell scripts that I’ve come to appreciate over the years. Very opinionated....
+* [Common shell script mistakes](www.pixelbeat.org (http://www.pixelbeat.org/programming/shell_script_mistakes.html) Portability and Robustness issues commonly found in shell scripts
+
