@@ -36,7 +36,7 @@ Para ejecutar el programa, hacemos:
 * `./helloworld.sh`, para ejecutarlo.
 
 Ejemplo:
-```
+```console
 > ./helloworld.sh
 Hello World!
 ```

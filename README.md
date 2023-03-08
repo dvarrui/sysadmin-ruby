@@ -21,3 +21,15 @@ Guía para usar lenguage ruby en la creación de scripts para solucionar problem
     * [Multiplataforma](cap-04/multiplataforma.md)
     * [Fitrado](cap-04/filtrado.md)
 * Capítulo 5: **EN CONSTRUCCIÓN!!!**
+
+## Vídeos
+
+* [20220518 ujilliurex22: I love Ruby. Scripting Feliz!](https://www.youtube.com/watch?v=lggNRY4qNLs)
+* [20220208 I love Ruby. Episodio 1](https://www.youtube.com/watch?v=4NfmxYEBneo). Música descargada gratis de fiftysounds.com/es. Obra: Florencia y Diferente
+* [2019 pybirras: "Ruby y Python. ¿primos hermanos o primos lejanos?"](https://www.youtube.com/watch?v=Bvj7HKHjXCA)
+
+## Enlaces de interés
+
+* [Shell Script Best Practices - The Sharat's](https://t.co/f7zQenF46m?s=35) This article is about a few quick thumb rules I use when writing shell scripts that I’ve come to appreciate over the years. Very opinionated....
+* [Common shell script mistakes](www.pixelbeat.org (http://www.pixelbeat.org/programming/shell_script_mistakes.html) Portability and Robustness issues commonly found in shell scripts
+

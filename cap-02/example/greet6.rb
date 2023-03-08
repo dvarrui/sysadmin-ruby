@@ -4,6 +4,6 @@ if ARGV.empty?
   exit 1
 end
 
-ARGV.each do |name|
+for name in ARGV do
   puts "Hello #{name.capitalize}!"
 end

@@ -33,7 +33,7 @@ Comprobamos que el nuevo script hace un saludo a cada uno de los personajes dent
 filename = ARGV.first
 names = File.read(filename).split("\n")
 
-names.each do |name|
+for name in names do
   puts "Hello #{name}!"
 end
 ```
@@ -137,15 +137,17 @@ Usage: ./greet9.rb FILENAME
 ```
 
 Explicamos los cambios:
-```
+
+```ruby
 lines = %x[cat #{filename} | grep -v '#'].split("\n")
 
-lines.each do |line|
+for line in lines do
   items = line.split(":")
   puts "Hello #{items[0]}!" if items[1] == 'hi'
   puts "Bye-bye #{items[0]}!" if items[1] == 'bye'
 end
 ```
+
 * Cada línea del fichero (`lines`) es una Array que en cada iteración se vuelve a dividir (`items = line.split(":")`) en cada uno de los dos items que esperamos recibir.
 * `items[0]` será el primer campo (El nombre).
 * `items[1]` será el segundo campo (El modo de saludo)

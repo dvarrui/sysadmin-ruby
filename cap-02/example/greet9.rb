@@ -11,8 +11,11 @@ end
 filename = ARGV.first
 lines = %x[cat #{filename} | grep -v '#'].split("\n")
 
-lines.each do |line|
+for line in lines do
   items = line.split(":")
-  puts "Hello #{items[0]}!" if items[1] == 'hi'
-  puts "Bye-bye #{items[0]}!" if items[1] == 'bye'
+  if items[1] == 'hi'
+    puts "Hello #{items[0]}!"
+  elsif items[1] == 'bye'
+    puts "Bye-bye #{items[0]}!"
+  end
 end

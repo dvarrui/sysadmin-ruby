@@ -73,7 +73,7 @@ En este ejemplo [greet3.rb](example/greet3.rb), tenemos que:
 
 ```ruby
 #!/usr/bin/env ruby
-unless ARGV.first
+if not ARGV.first
   puts "Usage: #{$0} NAME"
   exit 1
 end
